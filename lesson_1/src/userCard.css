@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card__container {
+    user-select: none;
+    cursor: pointer;
+    width: 20rem;
+    height: 10rem;
+    border: 1px solid #cdcdcd;
+    display: flex;
+    gap: .5rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    box-shadow: 0px 5px 8px 0px #cdcdcd;
+    transition: .2s all;
+}
+
+.card__container:hover {
+    transform: scale(1.01);
+}
+
+.card__container:active {
+    transform: scale(.98);
+}
+
+.user__info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user__img-container {
+    flex: 1;
+    flex-shrink: 0;
+    border: 1px solid #cdcdcd;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+
+.user__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.user__hobbies {
+    text-align: left;
+    line-height: 1rem;
+    font-size: .9rem;
+}
+
+.user__hobbies-content {
+    word-wrap: wrap;
+    word-break: keep-all;
+}
