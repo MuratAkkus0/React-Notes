@@ -3,6 +3,7 @@ import PropsUserCard from "./lesson_2-10/PropsUserCards";
 import FirstComponent from "./lesson_1/FirstComponent";
 import UserCardContainer from "./lesson_2-10/UserCardContainer";
 import FirstUseState from "./lesson_2-10/FirstUseState"
+import FirstUseEffects from "./lesson_2-10/FirstUseEffects";
 
 function App() {
   // Componente React ile css verirken verilecek css kodlari bir obje olarak verilmelidir.
@@ -19,6 +20,7 @@ function App() {
   };
   return (
     <>
+      <FirstUseEffects />
       <FirstUseState />
       <UserCardContainer style={style}>
         <FirstComponent />
