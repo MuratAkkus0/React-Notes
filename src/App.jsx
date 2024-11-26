@@ -1,37 +1,22 @@
-import "./App.css";
-import PropsUserCard from "./lesson_2-10/PropsUserCards";
-import FirstComponent from "./lesson_1/FirstComponent";
-import UserCardContainer from "./lesson_2-10/UserCardContainer";
-import FirstUseState from "./lesson_2-10/FirstUseState"
-import FirstUseEffects from "./lesson_2-10/FirstUseEffects";
+import { useEffect, useState } from "react";
+import Count from "./redux_toolkit/Count";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllUsers } from "./redux_toolkit/usersSlice";
+import { deleteList } from "./redux_toolkit/usersSlice";
 
 function App() {
-  // Componente React ile css verirken verilecek css kodlari bir obje olarak verilmelidir.
-  // Ve bu  obje icerisindeki keyler css kodlarina karsilik gelir dakat bunlar yazilirken js syntax ina
-  // gore yazilmalidir. orn/ background-color => backgroundColor
+  const { users } = useSelector((store) => store.users);
+  const dispatch = useDispatch();
 
-  let style = {
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  };
+  useEffect(() => {
+    dispatch(getAllUsers());
+    console.log("first");
+  }, []);
   return (
     <>
-      <FirstUseEffects />
-      <FirstUseState />
-      <UserCardContainer style={style}>
-        <FirstComponent />
-        <br />
-        <PropsUserCard
-          userName="Ali"
-          userLastName="Veli"
-          userAge={28}
-          userHobbies="Riding"
-        />
-      </UserCardContainer>
+      <Count />
+      {users && users.map((user) => <div key={user.id}>{user.name}</div>)}
+      <button onClick={() => dispatch(deleteList())}>del</button>
     </>
   );
 }
